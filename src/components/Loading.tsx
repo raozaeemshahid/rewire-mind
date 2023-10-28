@@ -1,4 +1,4 @@
-import { type NextPage } from "next";
+import type { NextPage } from "next";
 
 const Loading: React.FC<{
   text?: "Signing You In" | "Loading Data" | "Getting Things Ready" | "Creating";

@@ -53,29 +53,22 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model CourseCategory {
-    id      String   @id @default(cuid())
-    title   String   @unique
-    Courses Course[]
-}
-
 model Course {
-    id         String           @id @default(cuid())
-    title      String
-    Instructor User             @relation("instructor", fields: [userId], references: [id])
+    id         String    @id @default(cuid())
+    title      String    @db.LongText
+    Instructor User      @relation("instructor", fields: [instructorId], references: [id])
     Contents   Content[]
     Students   User[]
-    Categories CourseCategory[]
 
-    userId String
+    instructorId String @map("userId")
 }
 
 model Content {
     id          String  @id @default(cuid())
     PartOf      Course  @relation(fields: [courseId], references: [id])
-    heading     String
+    heading     String  @db.LongText
     videLink    String?
-    textContent String?
+    textContent String? @db.LongText
 
     courseId String
 }

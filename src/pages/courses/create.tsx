@@ -1,15 +1,13 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/link";
 
-import { api } from "@/utils/api";
 import { useRouter } from "next/router";
 import HomeLayout from "@/components/HomeLayout";
-import HomePage from "@/components/HomePage";
+import CreateContent from "@/components/CreateCourse";
 
 export default function Home() {
   const router = useRouter();
-  const { status } = useSession();
+  const { status } = useSession({ required: true });
 
   return (
     <>
@@ -20,9 +18,8 @@ export default function Home() {
       </Head>
 
       <HomeLayout>
-        <HomePage></HomePage>
+        <CreateContent />
       </HomeLayout>
     </>
   );
 }
-
