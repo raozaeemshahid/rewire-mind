@@ -9,7 +9,6 @@ const HomePage: React.FC = () => {
   const allContent = api.courses.getAllContents.useQuery();
 
   const runQuery = () => {
-    // console.log(searchCoursesAPI.data);
     console.log("Searching: ", { searchQuery });
   };
   // if (!allContent.data) return <></>;

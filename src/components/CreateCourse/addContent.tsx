@@ -42,7 +42,6 @@ const AddContent: React.FC = () => {
       });
   };
 
-  console.log({ allCoures });
   if (allCoures.isLoading || !allCoures.data) return <Loading />;
   if (allCoures.data.length == 0) return <></>;
 
@@ -57,7 +56,6 @@ const AddContent: React.FC = () => {
           className="basic-single w-full text-gray-100"
           classNamePrefix="select"
           onChange={(e) => {
-            console.log({ e });
             if (e) changeSelectedCourse(e.value);
           }}
           defaultValue={
