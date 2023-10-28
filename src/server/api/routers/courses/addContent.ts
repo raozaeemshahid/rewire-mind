@@ -13,8 +13,8 @@ export const addContent = protectedProcedure
     return ctx.db.content.create({
       data: {
         heading: input.title,
-        PartOf: { connect: { id: input.selectedCourse } },
         textContent: input.body,
+        courseId: input.selectedCourse,
       },
     });
   });

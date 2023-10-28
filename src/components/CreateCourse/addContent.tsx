@@ -36,9 +36,10 @@ const AddContent: React.FC = () => {
       .then(() => {
         changeBody("");
         changeContentTitle("");
-      }).catch(() => {
-        console.error("Couldn't create")
       })
+      .catch(() => {
+        console.error("Couldn't create");
+      });
   };
 
   console.log({ allCoures });
@@ -55,6 +56,10 @@ const AddContent: React.FC = () => {
         <Select
           className="basic-single w-full text-gray-100"
           classNamePrefix="select"
+          onChange={(e) => {
+            console.log({ e });
+            if (e) changeSelectedCourse(e.value);
+          }}
           defaultValue={
             allCoures.data.map((data) => ({
               value: data.id,
